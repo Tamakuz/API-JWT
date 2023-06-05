@@ -35,7 +35,9 @@ const port = 5000;
 const server = http.createServer(app);
 
 mongoose
-  .connect(config.mongoURI)
+  .connect(
+    "mongodb+srv://manajemeninformatika:QAtOvwimii0eanhT@sever-hmjmi.ka89kiw.mongodb.net/jsonwebtoken?retryWrites=true&w=majority"
+  )
   .then(() => {
     console.log("Connected to DB");
   })
