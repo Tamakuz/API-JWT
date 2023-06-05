@@ -38,11 +38,12 @@ mongoose
   .connect(config.mongoURI)
   .then(() => {
     console.log("Connected to DB");
-    server.listen(port, () => {
-      console.log("Server run on port " + port);
-    });
   })
   .catch((error) => {
     console.log({ error });
     process.exit(1);
   });
+
+server.listen(port, () => {
+  console.log("Server run on port " + port);
+});
