@@ -26,6 +26,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/api", routes)
+app.use("/", (req,res) => {
+  res.send("Welcome")
+})
 
 const port = 5000;
 
