@@ -44,11 +44,7 @@ const login = async (req, res) => {
     checkUser.password = undefined;
     checkUser.salt = undefined;
 
-    res.cookie("token", token, {
-      httpOnly: true,
-      domain: "https://fe-jwt.vercel.app/",
-      sameSite: "none"
-    });
+    res.locals.token = token;
 
     responseHandler.ok(res, { token, ...checkUser._doc });
   } catch (error) {
