@@ -44,7 +44,11 @@ const login = async (req, res) => {
     checkUser.password = undefined;
     checkUser.salt = undefined;
 
-    res.cookie("token", token, { httpOnly: true });
+    res.cookie("token", token, {
+      httpOnly: true,
+      domain: "https://fe-jwt.vercel.app/",
+      sameSite: "none"
+    });
 
     responseHandler.ok(res, { token, ...checkUser._doc });
   } catch (error) {
@@ -62,7 +66,7 @@ const autenticateToken = async (req, res, next) => {
     }
 
     jwt.verify(token, configs.jwtSecret);
-    res.end()
+    res.end();
   } catch (err) {
     if (err.name === "TokenExpiredError") {
       // Token telah kadaluarsa, kirim respons logout otomatis
