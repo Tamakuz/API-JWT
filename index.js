@@ -15,7 +15,7 @@ app.use(
       /http:\/\/127\.0\.0\.1:\d+/,
       "http://localhost",
       "http://127.0.0.1",
-      "https://tamakuz.github.io",
+      "https://fe-jwt.vercel.app",
       "127.0.0.1:8080",
     ],
     credentials: true,
